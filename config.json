@@ -1,0 +1,8 @@
+{
+  "model_kwargs": {
+    "dropout_rate": 0.8
+  },
+  "data_loader_args": {
+    "random_split": [0,0]
+  }
+}
