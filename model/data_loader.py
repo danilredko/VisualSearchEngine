@@ -8,43 +8,51 @@ import time
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 
-num_classes = 10
-
 IMAGE_SIZE = (96, 96)
 BATCH_SIZE = 32
 
-datagen = tf.keras.preprocessing.image.ImageDataGenerator(
-    rotation_range=40,
-    horizontal_flip=True,
-    width_shift_range=0.2,
-    height_shift_range=0.2,
-    shear_range=0.2,
-    zoom_range=0.2,
-    rescale=1.0 / 255,
-)
 
-directory_iterator = tf.keras.preprocessing.image.DirectoryIterator(
-    "dataset",
-    datagen,
-    target_size=IMAGE_SIZE,
-    color_mode="rgb",
-    classes=None,
-    batch_size=BATCH_SIZE,
-    shuffle=False,
-    seed=9,
-)
+class ImageLoader:
+    def __init__(self, IMAGE_SIZE, BATCH_SIZE):
+
+        self.datagen = tf.keras.preprocessing.image.ImageDataGenerator(
+
+            rotation_range=40,
+            horizontal_flip=True,
+            width_shift_range=0.2,
+            height_shift_range=0.2,
+            shear_range=0.2,
+            zoom_range=0.2,
+            rescale=1.0 / 255)
+
+        self.directory_iterator = tf.keras.preprocessing.image.DirectoryIterator(
+                "../dataset",
+                self.datagen,
+                target_size=IMAGE_SIZE,
+                color_mode="rgb",
+                classes=None,
+                batch_size=BATCH_SIZE,
+                shuffle=False,
+                seed=9,
+            )
+
+
+data_loader = ImageLoader((96, 96), 32)
 
 m = tf.keras.Sequential(
     [
         hub.KerasLayer(
-            "https://tfhub.dev/google/imagenet/mobilenet_v2_050_96/feature_vector/4 (https://tfhub.dev/google/imagenet/mobilenet_v2_050_96/feature_vector/4)",
+            "https://tfhub.dev/google/imagenet/mobilenet_v2_050_96/feature_vector/4",
             trainable=False,
         ),
     ]
 )
 m.build([None, 96, 96, 3])
 
-image_features = m.predict(directory_iterator, verbose=1)
+image_features = m.predict(data_loader.directory_iterator, verbose=1)
+
+np.save('extracted_features', image_features)
+
 normalized_im = image_features/np.linalg.norm(image_features, ord=2, axis=1, keepdims=True)
 
 d = 1280
