@@ -9,12 +9,13 @@ from model.score_calculation import ScoreCalculator
 
 
 class VisualSearch:
-
     def __init__(self, model_name):
 
         self.config = Config().config
         self.iterator = ImageIterator(self.config[model_name]).directory_iterator
-        self.image_features = FeatureExtractor(self.config[model_name]).extract_features(self.iterator)
+        self.image_features = FeatureExtractor(
+            self.config[model_name]
+        ).extract_features(self.iterator)
         self.storage = FeatureStorage(self.image_features)
         self.score_calc = ScoreCalculator()
 
@@ -26,15 +27,13 @@ class VisualSearch:
         fig.set_size_inches(25, 15)
         for i, idx in enumerate(I):
 
-            img = mpimg.imread(f'dataset/{file_names[idx]}')
+            img = mpimg.imread(f"dataset/{file_names[idx]}")
             axs[i].imshow(img)
-            axs[i].set_title('Similarity: '+str(self.score_calc.calculate_precision(image_name, file_names[idx])))
-            axs[i].axis('off')
+            axs[i].set_title(
+                "Similarity: "
+                + str(self.score_calc.calculate_precision(image_name, file_names[idx]))
+            )
+            axs[i].axis("off")
 
-        fig.suptitle('Top {} similar images'.format(top_k))
+        fig.suptitle("Top {} similar images".format(top_k))
         plt.show()
-
-
-
-
-

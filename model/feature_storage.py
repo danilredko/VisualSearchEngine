@@ -3,7 +3,6 @@ import numpy as np
 
 
 class FeatureStorage:
-
     def __init__(self, image_features):
 
         self.image_features = image_features
@@ -12,7 +11,7 @@ class FeatureStorage:
 
     def get_top_k_similar(self, image_name, file_names, top_k):
 
-        im_index = file_names.index(f'images/{image_name}')
+        im_index = file_names.index(f"images/{image_name}")
         im_feature = np.array([self.image_features[im_index]])
         D, I = self.index.search(im_feature, top_k)
 
