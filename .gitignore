@@ -1,1 +1,4 @@
-/dataset
+dataset
+venv
+model/extracted_features.npy
+.idea

@@ -1,8 +1,19 @@
 {
-  "model_kwargs": {
-    "dropout_rate": 0.8
-  },
-  "data_loader_args": {
-    "random_split": [0,0]
+  "mobile_net_v2": {
+    "url": "https://tfhub.dev/google/imagenet/mobilenet_v2_050_96/feature_vector/4",
+    "image_generator_args": {
+      "rotation_range": 40,
+      "horizontal_flip": "True",
+      "width_shift_range": 0.2,
+      "height_shift_range": 0.2,
+      "shear_range" : 0.2,
+      "zoom_range": 0.2
+    },
+    "image_iterator_args": {
+    "IMAGE_SIZE": [96, 96],
+    "BATCH_SIZE": 32
+    }
   }
+
 }
+
