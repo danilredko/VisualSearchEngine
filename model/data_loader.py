@@ -1,12 +1,5 @@
 import tensorflow as tf
-import tensorflow_hub as hub
-import numpy as np
-import faiss
 
-import time
-
-import matplotlib.image as mpimg
-import matplotlib.pyplot as plt
 
 IMAGE_SIZE = (96, 96)
 BATCH_SIZE = 32
@@ -27,7 +20,7 @@ class ImageIterator:
             rescale=1.0 / 255)
 
         self.directory_iterator = tf.keras.preprocessing.image.DirectoryIterator(
-                "../dataset",
+                "dataset",
                 self.datagen,
                 target_size=IMAGE_SIZE,
                 color_mode="rgb",

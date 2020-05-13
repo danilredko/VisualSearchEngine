@@ -1,3 +1,5 @@
+import os
+
 import tensorflow as tf
 import tensorflow_hub as hub
 import numpy as np
@@ -19,19 +21,13 @@ class FeatureExtractor:
 
     def extract_features(self, image_iterator):
 
+        if 'extracted_features.npy' in os.listdir('model'):
+            return np.load('model/extracted_features.npy')
+
         image_features = self.model.predict(image_iterator, verbose=1)
         normalized_features = image_features / np.linalg.norm(image_features, ord=2, axis=1, keepdims=True)
+        np.save('model/extracted_features', normalized_features)
         return normalized_features
 
-    def save_features(self, image_iterator):
-
-        normalized_features = self.extract_features(image_iterator)
-        np.save('extracted_features', normalized_features)
-        return normalized_features
-
-    @staticmethod
-    def load_features():
-
-        return np.load('extracted_features.npy')
 
 
