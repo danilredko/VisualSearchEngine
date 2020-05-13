@@ -1,4 +1,4 @@
 dataset
 venv
 model/extracted_features.npy
-.idea
+.idea/
