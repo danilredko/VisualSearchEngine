@@ -12,7 +12,8 @@ IMAGE_SIZE = (96, 96)
 BATCH_SIZE = 32
 
 
-class ImageLoader:
+class ImageIterator:
+
     def __init__(self, IMAGE_SIZE, BATCH_SIZE):
 
         self.datagen = tf.keras.preprocessing.image.ImageDataGenerator(
@@ -37,7 +38,7 @@ class ImageLoader:
             )
 
 
-data_loader = ImageLoader((96, 96), 32)
+data_loader = ImageIterator((96, 96), 32)
 
 m = tf.keras.Sequential(
     [
