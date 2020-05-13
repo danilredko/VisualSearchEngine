@@ -7,17 +7,16 @@ import numpy as np
 
 class FeatureExtractor:
 
-    def __init__(self, hub_model_url, model_build_args):
-
+    def __init__(self, config):
         self.model = tf.keras.Sequential(
             [
                 hub.KerasLayer(
-                    "https://tfhub.dev/google/imagenet/mobilenet_v2_050_96/feature_vector/4",
+                    config['url'],
                     trainable=False,
                 ),
             ]
         )
-        self.model.build([None, 96, 96, 3])
+        self.model.build([None, config['image_iterator_args']['IMAGE_SIZE'][0], config['image_iterator_args']['IMAGE_SIZE'][1], 3])
 
     def extract_features(self, image_iterator):
 

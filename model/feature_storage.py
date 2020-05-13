@@ -1,5 +1,4 @@
 import faiss
-import time
 import numpy as np
 
 
@@ -18,12 +17,3 @@ class FeatureStorage:
         D, I = self.index.search(im_feature, top_k)
 
         return I[0]
-
-        # fig, axs = plt.subplots(4, 1)
-        # for i, idx in enumerate(I[0]):
-        #     print(filenames[idx])
-        #     img = mpimg.imread(f'dataset/{filenames[idx]}')
-        #     axs[i].imshow(img)
-        # plt.show()
-        #
-        # find_closest_images("10000.jpg", k)
