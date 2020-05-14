@@ -7,7 +7,7 @@ import numpy as np
 class ScoreCalculator:
     def __init__(self):
 
-        df = pd.read_csv("../dataset/styles.csv", usecols=range(0, 7))
+        df = pd.read_csv("dataset/styles.csv", usecols=range(0, 7))
         most_freq_color = df["baseColour"].value_counts().index[0]
         most_freq_season = df["season"].value_counts().index[0]
         df["baseColour"].fillna(most_freq_color, inplace=True)

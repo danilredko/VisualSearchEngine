@@ -22,7 +22,7 @@ class SimilarityFinder:
 
     @staticmethod
     def read_files():
-        with open("../data/filenames.pickle", "rb") as handle:
+        with open("data/filenames.pickle", "rb") as handle:
             filenames = pickle.load(handle)
         image_features = np.load("../data/extracted_features.npy")
         return filenames, image_features
@@ -39,12 +39,12 @@ class SimilarityFinder:
         fig, axs = plt.subplots(1, top_k)
         fig.set_size_inches(25, 15)
         for i, idx in enumerate(I):
-            img = mpimg.imread(f"../dataset/{self.filenames[idx]}")
+            img = mpimg.imread(f"dataset/{self.filenames[idx]}")
             axs[i].imshow(img)
-            axs[i].set_title(
-                f"Similarity: {self.score_calc.calculate_precision(image_name, self.filenames[idx]):.3f}\nFilename: {self.filenames[idx]}"
-            )
+            title = f"Similarity: {self.score_calc.calculate_precision(image_name, self.filenames[idx]):.3f}\nFilename: {self.filenames[idx]}"
+            axs[i].set_title(title)
             axs[i].axis("off")
+            print(title)
 
         fig.suptitle(f"Top {top_k} similar images")
         plt.show()

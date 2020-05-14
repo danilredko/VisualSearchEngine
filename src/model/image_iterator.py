@@ -17,7 +17,7 @@ class ImageIterator:
         )
 
         self.directory_iterator = tf.keras.preprocessing.image.DirectoryIterator(
-            "../dataset",
+            "dataset",
             self.datagen,
             target_size=tuple(dir_iter_conf["IMAGE_SIZE"]),
             color_mode="rgb",

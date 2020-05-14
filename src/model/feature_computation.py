@@ -17,5 +17,5 @@ class FeatureComputer:
 
     def save_filenames(self):
         filenames = self.iterator.filenames
-        with open('../data/filenames.pickle', 'wb') as handle:
+        with open('data/filenames.pickle', 'wb') as handle:
             pickle.dump(filenames, handle)

@@ -17,8 +17,8 @@ def main():
     args = my_parser.parse_args()
     model = args.model
 
-    if not os.path.exists("../data"):
-        os.makedirs("../data")
+    if not os.path.exists("data"):
+        os.makedirs("data")
 
     index_builder = FeatureComputer(model)
     index_builder.save_filenames()

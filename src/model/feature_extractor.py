@@ -21,12 +21,12 @@ class FeatureExtractor:
 
     def extract_features(self, image_iterator):
 
-        if "extracted_features.npy" in os.listdir("../data"):
-            return np.load("../data/extracted_features.npy")
+        if "extracted_features.npy" in os.listdir("data"):
+            return np.load("data/extracted_features.npy")
 
         image_features = self.model.predict(image_iterator, verbose=1)
         normalized_features = image_features / np.linalg.norm(
             image_features, ord=2, axis=1, keepdims=True
         )
-        np.save("../data/extracted_features.npy", normalized_features)
+        np.save("data/extracted_features.npy", normalized_features)
         return normalized_features
