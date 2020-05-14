@@ -5,6 +5,10 @@ from model.feature_computation import FeatureComputer
 
 
 def main():
+    """
+    Command line interface to build index
+    @return:
+    """
     my_parser = argparse.ArgumentParser()
     my_parser.add_argument(
         "-m",

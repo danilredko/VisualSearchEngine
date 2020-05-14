@@ -4,6 +4,10 @@ from model.similarity_finder import SimilarityFinder
 
 
 def main():
+    """
+    Command line interface to find similar images
+    @return:
+    """
     my_parser = argparse.ArgumentParser()
 
     my_parser.add_argument(
@@ -11,7 +15,7 @@ def main():
         "--image_name",
         action="store",
         type=str,
-        default="13573.jpg",
+        default="10000.jpg",
         help="Specify a name of image to find similar images for",
     )
 

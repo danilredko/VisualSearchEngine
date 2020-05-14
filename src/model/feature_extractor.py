@@ -6,7 +6,22 @@ import numpy as np
 
 
 class FeatureExtractor:
+    """
+    A class to represent feature extractor
+
+    ...
+
+    Attributes
+    __________
+    model:
+        contains the pre-trained model loaded from tensorflow-hub
+
+    """
     def __init__(self, config):
+        """
+        Constructs all the necessary attributes for Feature Extractor model and builds it
+        @param config: contains all necessary parameters needed to define and build a model
+        """
         self.model = tf.keras.Sequential(
             [hub.KerasLayer(config["url"], trainable=False,),]
         )
@@ -20,6 +35,11 @@ class FeatureExtractor:
         )
 
     def extract_features(self, image_iterator):
+        """
+        Extracts(if not extracted before) and saves the features of images
+        @param image_iterator: image iterator
+        @return:normalized features of images
+        """
 
         if "extracted_features.npy" in os.listdir("data"):
             return np.load("data/extracted_features.npy")

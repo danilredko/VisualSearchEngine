@@ -2,6 +2,18 @@ import tensorflow as tf
 
 
 class ImageIterator:
+    """
+    A class to represent image iterator
+
+    ...
+
+    Attributes
+    __________
+    datagen:
+        image generator used to rescale and modify the images(scale, zoom, etc.)
+    directory_iterator:
+        iterates on the image directory using the image generator
+    """
     def __init__(self, config):
 
         img_gen_conf = config["image_generator_args"]
