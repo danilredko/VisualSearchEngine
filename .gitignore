@@ -1,4 +1,5 @@
-dataset
+dataset/
+data/
 venv
-model/extracted_features.npy
 .idea/
+*/__pycache__/*
