@@ -58,9 +58,3 @@ $python src/find_most_similar.py -img 10000.jpg -k 5
 
 ---
 
-## Features
-
-- Going into more detail on code and technologies used
-- I utilized this nifty <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown Cheatsheet</a> for this sample `README`.
-
-
