@@ -32,6 +32,23 @@
 - rename the dataset folder to `dataset`
 - place `dataset` into `VisualSeachEngine`
 
+
+### Project Structure
+```bash
+├── src                          #source files of the project
+│   ├── model                    #model files 
+│   ├── compute_index.py         #compute index file used for command line interface
+│   ├── find_most_similar.py     #main file of the project, runs the whole application
+├── data                         #dir for project files such as extracted features
+├── dataset                      #dataset for this project
+├── config.json                  #json file that contains all the config for the project
+├── Dockerfile                   #docker file needed for a docker image
+├── requirments.txt              #all the dependencies needed to run this project
+├── README.md                    #info about the project
+└── .gitignore                   #ignore some dirs for git
+```
+
+
 ### Setup
 
 - Install the requirments.txt: 
@@ -84,4 +101,6 @@ $ docker run -it visual-search-engine
 ├── README.md                    #info about the project
 └── .gitignore                   #ignore some dirs for git
 ```
+
+
 
