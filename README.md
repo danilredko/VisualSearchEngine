@@ -1,5 +1,5 @@
 
-<a href="http://fvcproductions.com"><img src="https://avatars1.githubusercontent.com/u/4284691?v=3&s=200" title="FVCproductions" alt="FVCproductions"></a>
+<a href="http://fvcproductions.com"><img src="https://storage.googleapis.com/kaggle-datasets-images/175990/396802/720cd7ceb25eb130d0b873464f734370/dataset-card.png?t=2019-04-26-16-40-29" title="FVCproductions" alt="FVCproductions"></a>
 
 <!-- [![FVCproductions](https://storage.googleapis.com/kaggle-datasets-images/175990/396802/720cd7ceb25eb130d0b873464f734370/dataset-card.png?t=2019-04-26-16-40-29)](http://fvcproductions.com) -->
 # Visual Search Engine
