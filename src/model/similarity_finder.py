@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 
-from model.score_calculation import ScoreCalculator
+from src.model.score_calculation import ScoreCalculator
 
 
 class SimilarityFinder:
