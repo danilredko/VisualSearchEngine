@@ -2,9 +2,9 @@ import pickle
 
 import faiss
 
-from src.model.feature_extractor import FeatureExtractor
-from src.model.image_iterator import ImageIterator
-from src.model.config import Config
+from model.feature_extractor import FeatureExtractor
+from model.image_iterator import ImageIterator
+from model.config import Config
 
 
 class FeatureComputer:
