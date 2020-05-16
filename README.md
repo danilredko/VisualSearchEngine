@@ -16,7 +16,9 @@
 - [Installation](#installation)
 - [Project Structure](#project-structure)
 - [Similarity Computation](#similarity-computation)
-- [System Requirments](#system-requirments)
+- [Features](#features)
+- [How it works](#how-it-works)
+- [System Requirements](#system-requirements)
 
 ---
 ## Main goal
@@ -68,7 +70,7 @@ $ pip install -r requirements.txt
 > Run this command to build index
 
 ```shell
-$ python src/compute_index.py
+$ python src/compute_and_save_features.py
 ```
 >Run this command `help` to see the optins:
 ```shell
@@ -97,5 +99,69 @@ $ docker run -it visual-search-engine
 
 - As a human user can say that images are similar or not, however since visual similarity is not a mathematical term, we need a way to compute this similarity. Since the dataset contains metadata about each image we can use cosine similarity to compute similarity using only non-visual features(called similarity on the final plot). This way we have cosine similarity of image features to compute visual similarity, as well as non-visual similarity. The focus of this project is a visual similarity, thus we sort the results by visual similarity based on extracted image features. The non-visual similarity is an additional metric that could be used if we trained our model.
 
-### System Requirments 
+### Features
+- This application allows a user pass an image from a dataset and a number how many sinmilar images user wants to get. The app outplot a plot of top k images, where the first one is an original image, and the rest are the most similar images in the dataset to the original image.
+
+### How it works
+- First, we extract the features form each image using mobile net v2(the model can be changed in the config). Then using faiss library(Faiss is a library for efficient similarity search and clustering of dense vectors. It contains algorithms that search in sets of vectors of any size, up to ones that possibly do not fit in RAM. It also contains supporting code for evaluation and parameter tuning. Faiss is written in C++ with complete wrappers for Python (versions 2 and 3). Some of the most useful algorithms are implemented on the GPU) we compute similarities for each image. Then we can access it using indecies. Main choice of using this library is bacause it is fast. GPU can be used during implementation. Then we save extracted features and filenames for future use. Once we have the features, we can use the application. Application builds index and find top 5 images requested by a user. 
+
+### System Requirements
+
+This application has been tested on linux 18.04 LTS.
+```bash
+$lshw
+ubuntu                      
+    description: Computer
+    width: 64 bits
+    capabilities: smp vsyscall32
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-memory
+          description: System memory
+          physical id: 0
+          size: 11GiB
+     *-cpu:0
+          product: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz
+          vendor: Intel Corp.
+          physical id: 1
+          bus info: cpu@0
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid mpx rdseed adx smap clflushopt xsaveopt xsavec xsaves arat md_clear flush_l1d arch_capabilities
+     *-cpu:1
+          product: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz
+          vendor: Intel Corp.
+          physical id: 2
+          bus info: cpu@1
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid mpx rdseed adx smap clflushopt xsaveopt xsavec xsaves arat md_clear flush_l1d arch_capabilities
+     *-cpu:2
+          product: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz
+          vendor: Intel Corp.
+          physical id: 3
+          bus info: cpu@2
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid mpx rdseed adx smap clflushopt xsaveopt xsavec xsaves arat md_clear flush_l1d arch_capabilities
+     *-cpu:3
+          product: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz
+          vendor: Intel Corp.
+          physical id: 4
+          bus info: cpu@3
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp x86-64 constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid mpx rdseed adx smap clflushopt xsaveopt xsavec xsaves arat md_clear flush_l1d arch_capabilities
+
+```
+
+```bash
+$ python src/find_most_similar.py -img 24953.jpg -k 4
+```
+Show top 4 similar images to the given image: Time -  0.40841955298674293
+```bash
+$ python src/find_most_similar.py -img 24953.jpg -k 40
+```
+Show top 4 similar images to the given image: Time -  0.940446972992504
+
+
+
+
 
