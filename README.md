@@ -27,7 +27,7 @@ The main goal of this project is to show a user visually similar items based on 
 
 ## Installation
 
-- The is a guide how to run my application, it assumes you have Python and pip installed. 
+- The is a guide how to run my application, it assumes you have Python3 and pip installed. 
 
 ### Clone
 
