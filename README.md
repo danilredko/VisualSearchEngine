@@ -64,21 +64,21 @@ The behavior of each class and function are expained in depth in the doc strings
 > 
 
 ```shell
-$ pip install -r requirements.txt
+$ pip3 install -r requirements.txt
 ```
 
 > Run this command to build index
 
 ```shell
-$ python src/compute_and_save_features.py
+$ python3 src/compute_and_save_features.py
 ```
 >Run this command `help` to see the optins:
 ```shell
-$python src/find_most_similar.py -h
+$python3 src/find_most_similar.py -h
 ```
 >Run this command to display top `k` similar image to the one you want, example:
 ```shell
-$python src/find_most_similar.py -img 10000.jpg -k 5
+$python3 src/find_most_similar.py -img 10000.jpg -k 5
 ```
 
 ---
@@ -153,11 +153,11 @@ ubuntu
 ```
 
 ```bash
-$ python src/find_most_similar.py -img 24953.jpg -k 4
+$ python3 src/find_most_similar.py -img 24953.jpg -k 4
 ```
 Show top 4 similar images to the given image: Time -  0.40841955298674293
 ```bash
-$ python src/find_most_similar.py -img 24953.jpg -k 40
+$ python3 src/find_most_similar.py -img 24953.jpg -k 40
 ```
 Show top 4 similar images to the given image: Time -  0.940446972992504
 
