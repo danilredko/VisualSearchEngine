@@ -36,7 +36,7 @@ The main goal of this project is to show a user visually similar items based on 
 ### Dataset
 
 - download the dataset using `https://www.kaggle.com/paramaggarwal/fashion-product-images-small`
-- rename the dataset folder to `dataset`
+- unzip rename the dataset folder to `dataset`
 - place `dataset` into `VisualSeachEngine`
 
 
