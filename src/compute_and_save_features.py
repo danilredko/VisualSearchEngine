@@ -1,7 +1,7 @@
 import os
 import argparse
 
-from src.model.feature_computation import FeatureComputer
+from model.feature_computation import FeatureComputer
 
 
 def main():
