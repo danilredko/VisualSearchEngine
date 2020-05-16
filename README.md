@@ -37,6 +37,7 @@ The main goal of this project is to show a user visually similar items based on 
 
 - download the dataset using `https://www.kaggle.com/paramaggarwal/fashion-product-images-small`
 - unzip rename the dataset folder to `dataset`
+- delete `myntradataset`
 - place `dataset` into `VisualSeachEngine`
 
 
