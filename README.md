@@ -60,6 +60,8 @@ The behavior of each class and function are expained in depth in the doc strings
 
 ### Setup
 
+- Docker file can be used as a guide
+
 - Install the requirments.txt: 
 
 > 
