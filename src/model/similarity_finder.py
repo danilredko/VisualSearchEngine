@@ -57,7 +57,7 @@ class SimilarityFinder:
     def get_top_k_similar(self, image_name, top_k):
         """
         Return an array of indices of top k similar images to the provided image
-        @param image_name: name of image file
+        @param image_name: name of image filegit a
         @param top_k: top k indices
         @return: an array of indices of top 5 similar images
         """
