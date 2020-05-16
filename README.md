@@ -14,13 +14,15 @@
 ## Table of Contents 
 - [Main goal](#main-goal)
 - [Installation](#installation)
-- [Features](#features)
--
+- [Project Structure](#project-structure)
+- [Similarity Computation](#similarity-computation)
+- [System Requirments](#system-requirments)
 
 ---
 ## Main goal
-- E-commerce is a big industry, people less go to the shopping malls, people start to shop online more. As marketing shows people tend to buy an item based on its visual components. Thus, pictures of the products are really important for successful e-commerce bussiness. 
-The main goal of this project is to show a user visual similar items based on the item he/she is looking at the moment. This project creates a back-end where you can feed a current product image a user is interested in, and provide him/her visually similar items. It increases the chances of buying. This project uses mobile net v2 to extract the features of images, and computes how similar the images are based on extracted features (however, config file provides an option to change a model depending on your needs). 
+- E-commerce is a big industry, people less go to the shopping malls, people start to shop online more. As marketing shows people tend to buy an item based on its visual components. Thus, pictures of the products are really important for successful e-commerce businesses. 
+The main goal of this project is to show a user visually similar items based on the item he/she is looking at the moment. This project creates a back-end where you can feed a current product image a user is interested in, and provide him/her visually similar items. It increases the chances of buying. This project uses mobile-net-v2 to extract the features of images and computes how similar the images are based on extracted features (however, the config file provides an option to change a model depending on your needs).
+
 ## Installation
 
 - The is a guide how to run my application, it assumes you have Python and pip installed. 
@@ -51,6 +53,7 @@ The main goal of this project is to show a user visual similar items based on th
 └── .gitignore                   #ignore some dirs for git
 ```
 
+The behavior of each class and function are expained in depth in the doc strings. 
 
 ### Setup
 
@@ -90,8 +93,9 @@ $ docker build --tag visual-search-engine
 $ docker run -it visual-search-engine 
 ```
 
-### Project Structure
+### Similarity Computation
 
+- As a human user can say that images are similar or not, however since visual similarity is not a mathematical term, we need a way to compute this similarity. Since the dataset contains metadata about each image we can use cosine similarity to compute similarity using only non-visual features(called similarity on the final plot). This way we have cosine similarity of image features to compute visual similarity, as well as non-visual similarity. The focus of this project is a visual similarity, thus we sort the results by visual similarity based on extracted image features. The non-visual similarity is an additional metric that could be used if we trained our model.
 
-
+### System Requirments 
 
