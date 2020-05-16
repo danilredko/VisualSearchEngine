@@ -1,6 +1,6 @@
 import argparse
 
-from src.model.similarity_finder import SimilarityFinder
+from model.similarity_finder import SimilarityFinder
 
 
 def main():
