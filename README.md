@@ -12,7 +12,7 @@
 [![INSERT YOUR GRAPHIC HERE](Figure_1.png)]()
 
 ## Table of Contents 
-- [Main goal](# Main goal of the project)
+- [Main goal of the project](#Main goal of the project)
 - [Installation](#installation)
 - [Features](#features)
 
