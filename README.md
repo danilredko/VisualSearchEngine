@@ -168,6 +168,3 @@ Show top 4 similar images to the given image: Time -  0.940446972992504
 ### Ways to improve 
 - There are a lot of ways to improve. First, model can be retrained for this specific task. Since now, we only extract the features from the images, but the model is not trained for this specific task. Model can be retrained for fashion items. Next, there is a better way of managing extracted features. They can be saved to a file, storted in cache while application is running. We could keep track how often each image is used and store its similar images in cache. Docker can be improved to support GUI. In this set up we only print similar images. However, we could make docker image support matpotlib to show the resulted images. 
 
-### Final Thoughts
-
-I enjoyed the process of developing this project. It makes me excited how it can be used in e-commerce business. Visual aspect is very important for E-commerce. Thank you, `the Fitting Room` and `Advait` for this experience!
